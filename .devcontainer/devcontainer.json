@@ -1,0 +1,7 @@
+{
+	"image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
+	"features": {
+		"ghcr.io/itsmechlark/features/postgresql:1": {},
+		"ghcr.io/robbert229/devcontainer-features/postgresql-client:1": {}
+	}
+}

@@ -10,6 +10,9 @@ from googleapiclient.errors import HttpError
 
 # when scopes is modified, delete token.json and reauthorize
 SCOPES = [
+    "openid",
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/userinfo.profile",
     "https://www.googleapis.com/auth/calendar.readonly",
     "https://www.googleapis.com/auth/calendar.events.readonly",
 ]
@@ -29,6 +32,10 @@ def main():
             token.write(creds.to_json())
 
     try:
+        with build("oauth2", "v2", credentials=creds) as service:
+            user_info = service.userinfo().get().execute()
+            print(user_info)
+
         service = build("calendar", "v3", credentials=creds)
         print("List calendars")
         page_token = None

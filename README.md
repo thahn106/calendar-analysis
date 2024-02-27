@@ -12,20 +12,20 @@ This project can be built directly on github codespaces using the devcontainer c
 ## Setup
 
 1. Clone repository
-2. Create virtual environment
+2. Setup and activate virtual environment
 
 ```bash
 python -m venv env
-```
-
-3. Activate virtual environment
-
-```bash
 source env/bin/activate
+pip install -r requirements.txt
 ```
 
-4. Install requirements
+3. Get Google Calendar API credentials and save them in the root directory as `credentials.json`
+
+## Usage
+
+Run the following command to start the server.
 
 ```bash
-pip install -r requirements.txt
+python manage.py runserver
 ```
